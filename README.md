@@ -1,1 +1,2 @@
 # module_18
+Simulate  blockchain ledger to allow partner banks to conduct financial transactions that is, to transfer money between senders and receivers and verify the integrity of the data in the ledger.
