@@ -48,7 +48,8 @@ import hashlib
 
 # Create a Record Data Class that consists of the `sender`, `receiver`, and
 # `amount` attributes
-class RecordTrade:
+@dataclass
+class Record:
     sender: str
     receiver: str
     amount: float
@@ -167,19 +168,18 @@ pychain = setup()
 
 # @TODO:
 # Delete the `input_data` variable from the Streamlit interface.
-input_data = st.text_input("Block Data")
 
-# @TODO:
+
 # Add an input area where you can get a value for `sender` from the user.
-# YOUR CODE HERE
+sender_data = st.text_input("Sender Data")
 
 # @TODO:
 # Add an input area where you can get a value for `receiver` from the user.
-# YOUR CODE HERE
+receiver_data = st.text_input("Receiver Data")
 
 # @TODO:
 # Add an input area where you can get a value for `amount` from the user.
-# YOUR CODE HERE
+transaction_amount = st.number_input("Amount")
 
 if st.button("Add Block"):
     prev_block = pychain.chain[-1]
@@ -190,7 +190,7 @@ if st.button("Add Block"):
     # which is set equal to a `Record` that contains the `sender`, `receiver`,
     # and `amount` values
     new_block = Block(
-        data=input_data,
+        record=Record(sender = sender_data, receiver=receiver_data, amount=transaction_amount),
         creator_id=42,
         prev_hash=prev_block_hash
     )
@@ -246,3 +246,4 @@ if st.button("Validate Chain"):
 # Take a screenshot of the Streamlit application page, which should indicate
 # the validity of the blockchain. Include the screenshot in the `README.md`
 # file for your Challenge repository.
+### Please see files attached Addded Blocks & Validate Block.png
